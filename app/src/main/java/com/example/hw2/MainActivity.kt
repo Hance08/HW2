@@ -6,13 +6,12 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
+import androidx.compose.ui.Modifier
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
-import androidx.compose.runtime.Composable
+import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import com.example.hw2.screens.DetailScreen
 import com.example.hw2.screens.MainScreen
 import com.example.hw2.ui.theme.HW2Theme
@@ -28,12 +27,12 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     val imageId = arrayOf(
-                        R.drawable.p1,
-                        R.drawable.p2,
-                        R.drawable.p3,
-                        R.drawable.p4,
-                        R.drawable.p5,
-                        R.drawable.p6
+                        R.drawable.image1,
+                        R.drawable.image2,
+                        R.drawable.image3,
+                        R.drawable.image4,
+                        R.drawable.image5,
+                        R.drawable.image6
                     )
 
                     val names = arrayOf(
@@ -65,7 +64,7 @@ class MainActivity : ComponentActivity() {
                                     type = NavType.IntType
                                 }
                             )
-                        ) { index->
+                        ) { index ->
                             DetailScreen(
                                 photos = imageId,
                                 names = names,
@@ -78,24 +77,5 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
-                }
-            }
-        }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    HW2Theme {
-        Greeting("Android")
     }
 }
