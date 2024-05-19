@@ -4,10 +4,15 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Icon
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -24,7 +29,8 @@ fun DetailScreen(
     photos: Array<Int>,
     names: Array<String>,
     ingredients: Array<String>,
-    itemIndex: Int?
+    itemIndex: Int?,
+    onBackClick: () -> Unit
 ){
     Column(
         modifier
@@ -32,6 +38,14 @@ fun DetailScreen(
             .padding(25.dp),
         verticalArrangement = Arrangement.spacedBy(20.dp)
     ) {
+        Row(
+            modifier.fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically
+        ){
+            IconButton(onClick = { onBackClick() }) {
+                Icon(imageVector = Icons.Default.ArrowBack, contentDescription = "Back")
+            }
+        }
 
         Box(modifier.fillMaxWidth(),
             contentAlignment = Alignment.Center

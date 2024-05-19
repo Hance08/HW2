@@ -78,7 +78,10 @@ class MainActivity : ComponentActivity() {
                                 photos = imageId,
                                 names = names,
                                 ingredients = ingredientsDetail,
-                                itemIndex = index.arguments?.getInt("index")
+                                itemIndex = index.arguments?.getInt("index"),
+                                onBackClick = {
+                                    navController.popBackStack()
+                                }
                             )
                         }
                     }
